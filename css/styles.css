@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css?family=Anton|Archivo+Black|Baloo+Bhaina|Permanent+Marker');
+/*
+font-family: 'Anton', sans-serif;
+font-family: 'Archivo Black', sans-serif;
+font-family: 'Baloo Bhaina', cursive;*/
+
+.box {
+  display: none;
+}
+
+.blur {
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -ms-filter: blur(2px);
+  -o-filter: blur(2px);
+  filter: blur(2px);
+
+}
+
+.container {
+
+  display: flex;
+  justify-content: center;
+
+}
+
+
+
+
+
+
+
+#outcome, #draw {
+  display: none;
+  font-family: 'Archivo Black', sans-serif;
+  text-align: center;
+  line-height: 50%;
+  position: absolute;
+  left:34%;
+  top: 38%;
+  background-color: rgba(226, 223, 224, 0.9);
+  width:380px;
+  height:100px;
+  z-index: 1;
+  padding:20px;
+  transition: all 3s ease-in-out;
+}
+
+/*#draw {
+  display: none;
+  font-family: 'Archivo Black', sans-serif;
+  text-align: center;
+  line-height: 50%;
+  position: absolute;
+  top: 38%;
+  background-color: rgba(226, 223, 224, 0.9);
+  width:400px;
+  height:100px;
+  z-index: 1;
+  padding:20px;
+  transition: all 3s ease-in-out;
+}*/
+
+
+#outcome button {
+
+  font-family: 'Archivo Black', sans-serif;
+  width:40px;
+  height:40px;
+  transition: 0.3s all ease-in-out;
+}
+
+#outcome button:hover {
+  transform: scale(1.1);
+  color:rgb(107, 156, 219);
+
+
+}
+
+#score {
+  display: none;
+  position: absolute;
+  top: 16%;
+  left:36%;
+
+
+}
+
+#xscore, #oscore {
+  color:blue;
+  text-shadow: rgb(15, 16, 97);
+  padding:20px;
+}
+
+  .nobutton {
+  position:absolute;
+  top: 50px;
+  right:150px;
+  border-radius: 30px;
+}
+
+  .yesbutton, .drawbutton {
+  position:absolute;
+  top: 50px;
+  right:230px;
+  border-radius: 30px;
+}
+
+
+
+h1 {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 50px;
+
+}
+
+h2 {
+  font-family: 'Archivo Black', sans-serif;
+  color: black;
+  font-size: 25px;
+  position: absolute;
+  bottom:10px;
+  /*transition: all 0.5s ease-in-out;*/
+}
+
+/*h2:hover {
+  transform: scale(1.2);
+}*/
+
+body {
+  font-family: 'Archivo Black', sans-serif;
+  display: flex;
+  justify-content: center;
+
+
+}
+
+table {
+
+  position: absolute;
+
+  top: 20%;
+
+}
+
+table tr td {
+
+  border: black solid 2px;
+  width: 150px;
+  height: 150px;
+
+}
+
+td {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 100px;
+  font-weight: 800;
+  line-height: 50%;
+  text-align: center;
+
+}
