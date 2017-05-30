@@ -9,13 +9,58 @@ font-family: 'Baloo Bhaina', cursive;*/
 
 }
 
+.boxo9 {
+    display: block;
+    background-color: white;
+    width: 100px;
+    height:100px;
+    border: black solid 2px;
+    border-radius: 2px;
+
+}
+
+.table9 {
+  position: absolute;
+  top:190px;
+  display: flex;
+  justify-content: center;
+  width:400px;
+  height:200px;
+  flex-direction:row;
+  flex-wrap: wrap;
+
+}
+
 .boxo {
     display: block;
     background-color: white;
-    width: 50px;
-    height:50px;
+    width: 100px;
+    height:100px;
     border: black solid 2px;
+    border-radius: 2px;
 
+}
+
+.table16 {
+  position: absolute;
+  top:150px;
+  display: flex;
+  justify-content: center;
+  width:500px;
+  height:200px;
+  flex-direction:row;
+  flex-wrap: wrap;
+}
+
+.table25   {
+  position: absolute;
+  top:90px;
+  display: flex;
+  justify-content: center;
+  width:600px;
+  height:200px;
+  flex-direction:row;
+  flex-wrap: wrap;
 }
 
 
@@ -111,6 +156,21 @@ input[type=text] {
 
 input[type=radio] {
     width:25px;
+
+}
+
+
+/*
+new stuff for bigger game boards!*/
+
+
+.boxo {
+  background-color: white;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 100px;
+  font-weight: 800;
+  line-height: 50%;
+  text-align: center;
 
 }
 
@@ -282,9 +342,9 @@ h1 {
 h2 {
   font-family: 'Archivo Black', sans-serif;
   color: black;
-  font-size: 25px;
+  font-size: 30px;
   position: absolute;
-  bottom:10px;
+  bottom:20px;
   /*transition: all 0.5s ease-in-out;*/
 }
 
