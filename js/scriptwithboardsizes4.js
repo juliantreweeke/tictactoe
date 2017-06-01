@@ -82,15 +82,53 @@ $('#startbutton').click(function(ev){
 
       }
 
+      // work out each cell size from N:
+      //  - i.e
+
+      // max width 520px (#table)
+      //  for each cell size, we divide 520 / N
 
 
-      $('#table').css('width', (rows*100 + 20) + 'px');
 
-        if (squares > 5){
-        var dubsquares = squares * 2;
-      $('#table').css('width', (rows*100 + 100) + 'px');
-      $('h2').css({'right': '10%', 'bottom': '87%'});
-      };
+      // this should just be 520px hardcoded in CSS
+      // $('#table').css('width', (rows*100 + 20) + 'px');
+      // var tableWidth = 500 + (squares * 5);
+      var tableWidth = 500 + (squares * 4);
+      $('#table').css('width', tableWidth + 'px');
+      var fontSize = Math.round( 350 / squares );
+      $('.cell').css('font-size', fontSize + 'px');
+
+
+      // set cell size
+      var cellSize = 500 / squares;
+      $('.cell').css({
+        width:  cellSize + 'px',
+        height: cellSize + 'px'
+      });
+
+      if (squares > 11){
+        $('h2').css({'right': '10%', 'bottom': '87%'});
+      }
+
+      //   if (squares > 5){
+      //   var dubsquares = squares * 2;
+      // $('#table').css('width', (rows*100 + 100) + 'px');
+      // $('h2').css({'right': '10%', 'bottom': '87%'});
+      // };
+
+      // if (squares > 5){
+      //   var dubsquares = squares * 2;
+      //   $('#table').css('width', (rows*50 + 50) + 'px');
+      //   $('.cell').css({'width':'50px','height':'50px','font-size':'40px'});
+      // // $('h2').css({'right': '10%', 'bottom': '87%'});
+      // }
+
+      // if (squares > 10){
+      //   var dubsquares = squares * 2;
+      //   $('#table').css('width', (rows*25 + 25) + 'px');
+      //   $('.cell').css({'width':'25px','height':'25px'});
+      //   // $('h2').css({'right': '10%', 'bottom': '87%'});
+      // }
 
     } // if game.boxes.length
 
