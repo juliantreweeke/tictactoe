@@ -54,7 +54,10 @@ $('#startbutton').click(function(ev){
   $('h2').text(playerX);
   currentPlayer = playerX; // sets current player
   rounds = $("#rounds input[type='radio']:checked").val(); // get number of rounds
-  squares = +$("#squares input[type='radio']:checked").val(); // get number of rounds
+  squares = $("#custom").val();
+
+
+  // squares = +$("#squares input[type='radio']:checked").val(); // get number of rounds
 
 
 
@@ -80,28 +83,14 @@ $('#startbutton').click(function(ev){
       }
 
 
-      // $('#table').css('width', (rows*100 + 20) + 'px');
 
       $('#table').css('width', (rows*100 + 20) + 'px');
-      if (squares > 4){
-        var dubsquares = squares * squares * squares;
-        $('#table').css('width', (rows*100 - 20) + 'px');
 
-      $('.cell').css('width', 100 - squares - squares );
-      $('.cell').css('height', 100 - squares - squares );
-      $('.h2').css('bottom', 20 - dubsquares);
-
-    };
-
-
-
-      // $('#table').css('height', (rows*100 + 20) + 'px');
-      // $('.cell').css('width', 100 - squares - squares - 5);
-      // $('.cell').css('height', 100 - squares - squares - 5);
-
-
-
-
+        if (squares > 5){
+        var dubsquares = squares * 2;
+      $('#table').css('width', (rows*100 + 100) + 'px');
+      $('h2').css({'right': '10%', 'bottom': '87%'});
+      };
 
     } // if game.boxes.length
 
@@ -184,7 +173,6 @@ $('#table').on('click','.cell',function(){
 
 
 // check to see if anyone has won
-
 
 var checker = function(){
 

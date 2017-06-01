@@ -36,8 +36,8 @@
 
     </div>
 
-    <h2></h2>
-    <!-- <h2><span id='currentPlayer'></span></h2> -->
+
+
     <br>
 
     <div id="score"><span id="playerX"></span>'s Score:<span id="xscore"></span><span id="playerO"></span>'s Score:<span id="oscore"></span></div>
@@ -48,14 +48,11 @@
   <div id="outcome">
     <span id="winner"></span> wins!
     <br>
-  <!-- <button type="button" name="button" class='yesbutton'>Yes</button>
-  <button type="button" name="button" class='nobutton'> No </button> -->
+
   </div>
 
   <div id="draw">
   It's a Draw Dummy!
-  <!-- <button type="button" name="button" class='drawbutton'>Yes</button>
-  <button type="button" name="button" class='nobutton'> No </button> -->
   </div>
 
   <div id="nextRound">
@@ -92,9 +89,15 @@
       </form>
 
       <form id="squares">
-        Board Size:
+        Row Size(Default 3x3):
         <br>
-        <input type="radio" id="9squares" name="squares" value="3" checked> 3 x 3<br>
+
+        <input type="number" id="custom" name="squares" min="3" max="100"><br>
+
+
+
+
+        <!-- <input type="radio" id="9squares" name="squares" value="3" checked> 3 x 3<br>
         <input type="radio" id="16squares" name="squares" value="4"> 4 x 4<br>
         <input type="radio" id="25squares" name="squares" value="5"> 5 x 5<br>
         <input type="radio" id="30squares" name="squares" value="6"> 6 x 6<br>
@@ -102,12 +105,22 @@
         <input type="radio" id="64squares" name="squares" value="8"> 8 x 8<br>
         <input type="radio" id="81squares" name="squares" value="9"> 9 x 9<br>
         <input type="radio" id="100squares" name="squares" value="10"> 10 x 10<br>
+        <label><input type="radio" name="custom" value="squares">OTHER</label> -->
+
+        <!-- <input type="radio" id="customsquares" name="squares" value="">Custom size<input type="number" name="other_reason" />​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​ -->
+
       </form>
+
+
 
         <button id="startbutton" value="">Start Game</button>
     </div>
   </div>
+  <footer>
 
+    <h2></h2>
+
+  </footer>
 
 
 
