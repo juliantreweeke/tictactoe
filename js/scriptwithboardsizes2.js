@@ -11,6 +11,8 @@ var playerMovedFirst;
 var rounds;
 var gamesplayed = 0;
 var squares;
+var cols;
+var rows;
 
 
 
@@ -29,10 +31,11 @@ $('#xscore').text = xscore;
 //     boxes: [ , , , , , , , , ,]
 // };
 
-
+ // boxes[i][j] = null;
 
 var game = {
-  // boxes: [][]
+
+  boxes: []
 
   // boxes: [
   //   [0, 1, 2],
@@ -70,34 +73,97 @@ $('#startbutton').click(function(ev){
 
 
   if (game.boxes.length === 0){ // generate new custom board size
+      //
+      // for(var i=0; i < squares ;i++){
+      //     $('#table').append( '<div>' );
+      //
+      //       // game.boxes.push(' ,');
+      //
+      //   };
+      //
+      // for (var i = 0; i < squares; i++) {   // create array
+      //   game.boxes = [];
+      //   game.box[i][j] = null;
+      //
+      // };
 
-      for(var i=0; i < squares ;i++){
-          $('#table').append( '<div>' );
-            game.boxes.push(' ,');
+      for (var rows = 0; rows < squares; rows++) {
+        // rows
 
-        };
+        // set each row to be a new empty array (i.e. of column values)
+        game.boxes[rows] = [];
 
-      $('#table').addClass('table' + squares.toString());
-
-      $('#table > div').each(function(i){
-
-        for (var i = 0; i <= squares / 3; i++) {
-          ('#table > div').attr('row', i);
-          for (var j = 0; j <squares; j++) {
-            array[i]
-          }
-
+        for (var cols = 0; cols < squares; cols++) {
+          // cols
+          console.log('rows:', rows, 'cols:', cols);
+          var $cell = $( '<div class="cell">' );
+          $cell.attr('rows', rows).attr('cols', cols);
+          $('#table').append($cell);
+           game.boxes[rows][cols] = null;
         }
 
+      }
 
-        // $( this ).attr('id', i).attr('class', 'boxo');
 
-      }) ;
+      $('#table').css('width', (rows*100 + 20) + 'px');
+
+
+
+      // $('#table').addClass('table' + squares.toString());
+
+      // $('#table > div').each(function(i){
+      //   $( this ).attr('id', i).attr('class', 'boxo');
+      //   // $( this ).attr('id', i).attr('class', 'boxo');
+      //
+      // });
+
+      // for (var i = 0, j = 0, k = 0; i < squares; i++,k++) { // give boxes row id
+      //
+      //   $('#' + i ).attr('row', j);
+      //   $('#' + i ).attr('col', k);
+      //   if ( i === 2 || i === 5){j++};
+      //   if ( k === 2){k = 0};
+      //
+      // };
+
+      // for (var i = 0; i < squares; i++) {
+      //     $('#' + i ).attr('row', i);
+      //   for (var j = 0; j < 3; j++) {
+      //     $('#' + i ).attr('col', j);
+      //   }
+      // };
+
+      //
+      // cols = -1;rows = 0;
+      // for (var i = 0; i < squares; i++) { // assign every square col and row id
+      //      cols++; if (cols > 2 ){cols = 0, rows++ };
+      //      $('#' + i ).attr('col', cols);
+      //      $('#' + i ).attr('row', rows);
+      // };
+
+
+
+
+
+
+
+
+
+        // for (var i = 0, j = 0 ; (i === 2) || (i === 5 ); j++) {
+        //   alert(hi);
+        //   console.log(i);
+        //   $('#' + i ).attr('row', i);
+        //   i++;
+        //   if (i >= squares){break};
+        // };
 
     } // if game.boxes.length
 
 }); // startbutton
 
+
+
+// for(var i=0, img; (img = imgs[i]) && (i < 12); i++)
 
 
 
@@ -122,18 +188,24 @@ $('#startbutton').click(function(ev){
 
 // this starts when someone clicks....
 
-$('#table').on('click','.boxo',function(){
+$('#table').on('click','.cell',function(){
 
   if(win){ return }; // check to see if the game has been one if so disable clicking
   drawCounter++ // counting number of turns done
 
-  var go = Number($(this).attr('id'));
+  // var gorow = Number($(this).attr('row'));
+  // var gocol = Number($(this).attr('col'));
+  var gorow = ($(this).attr('rows'));
+  // alert('gorow: ' + gorow);
+  var gocol = ($(this).attr('cols'));
+  // alert('gocol: ' + gocol);
+
   // alert(go);
   if ( currentPlayer === playerX && $(this).text() === ''){ // if current player and the box is empty
     firstMove();
     turn = 'x'; // record who's turn it is
     $(this).text('x'); // put x in the box in html
-    game.boxes[go] = ($(this).text()); // push the value of the box to the array
+    game.boxes[gorow][gocol] = ($(this).text()); // push the value of the box to the array
     // $('h2').text(playerO);
     $('h2').text(playerO).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
     checker();
@@ -143,7 +215,7 @@ $('#table').on('click','.boxo',function(){
     firstMove();
     turn = 'o';
     $(this).text('o');
-    game.boxes[go] = ($(this).text());
+    game.boxes[gorow][gocol] = ($(this).text());
     $('h2').text(playerX).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
     checker();
     return;
@@ -172,7 +244,97 @@ $('#table').on('click','.boxo',function(){
 
 var checker = function(){
 
-  console.log(game.boxes);
+  // console.log(game.boxes);
+  // var result;
+  // for (var i = 0; i < squares; i++) {   // loop through all boxes
+  //   for (var j = 0; j < squares; j++) {
+  //      result = game.boxes[i][j];
+  //     }
+  //
+  //   };
+
+
+    // for (var rows = 0; rows < squares; rows++) {
+    //     // rows
+    //
+    //     // set each row to be a new empty array (i.e. of column values)
+    //     game.boxes[rows] = [];
+    //
+    //     for (var cols = 0; cols < squares; cols++) {
+    //       // cols
+    //     }
+    //
+    //     var result = game.boxes[rows][cols];
+    //
+    //
+
+    // check rows
+
+    for (var i = 0; i < squares; i++) {
+      var rowSum = 0;
+    } for (var j = 0; j < squares; j++) {
+       rowsum += arr[i][j];
+    }
+
+
+
+
+    //   };
+
+
+ for(var i = 0; i<3;i++){
+        var rowSum = 0;
+        for(var j = 0; j<3;j++){
+            rowSum += arr[i][j];
+        }
+        if(rowSum === 3)
+            alert("Circle WIN!");
+        else if(rowSum === -3)
+            alert("Cross WIN!");
+    }
+
+    for(var i = 0; i<3;i++){
+        var colSum = 0;
+        for(var j = 0; j<3;j++){
+            colSum += arr[j][i];
+        }
+        if(colSum === 3)
+            alert("Circle WIN!");
+        else if(colSum === -3)
+            alert("Cross WIN!");
+    }
+
+    if(arr[0][0] + arr[1][1] + arr[2][2] === 3)
+        alert("Circle WIN!");
+    else if(arr[0][0] + arr[1][1] + arr[2][2] === -3)
+        alert("Cross WIN!");
+
+    if(arr[2][0] + arr[1][1] + arr[0][2] === 3)
+        alert("Circle WIN!");
+    else if(arr[2][0] + arr[1][1] + arr[0][2] === -3)
+        alert("Cross WIN!");
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   if(
     (game.boxes[0] === turn && game.boxes[1] === turn &&  game.boxes[2] === turn)

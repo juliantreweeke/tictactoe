@@ -9,7 +9,31 @@ font-family: 'Baloo Bhaina', cursive;*/
 
 }
 
-.boxo9 {
+.cell{
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border: black solid 2px;
+  border-radius: 2px;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 80px;
+  font-weight: 800;
+  text-align: center;
+  vertical-align: top;
+  line-height: 100%;
+}
+
+#table{
+  border: 1px solid red;
+  width: 80%;
+  display: block;
+  position: relative;
+  top:100px;
+  table-layout: fixed;
+}
+
+/*.boxo9 {
     display: block;
     background-color: white;
     width: 100px;
@@ -29,9 +53,9 @@ font-family: 'Baloo Bhaina', cursive;*/
   flex-direction:row;
   flex-wrap: wrap;
 
-}
+}*/
 
-.boxo {
+/*.boxo {
     display: block;
     background-color: white;
     width: 100px;
@@ -39,33 +63,7 @@ font-family: 'Baloo Bhaina', cursive;*/
     border: black solid 2px;
     border-radius: 2px;
 
-}
-
-.table16 {
-  position: absolute;
-  top:150px;
-  display: flex;
-  justify-content: center;
-  width:500px;
-  height:200px;
-  flex-direction:row;
-  flex-wrap: wrap;
-}
-
-.table25   {
-  position: absolute;
-  top:90px;
-  display: flex;
-  justify-content: center;
-  width:600px;
-  height:200px;
-  flex-direction:row;
-  flex-wrap: wrap;
-}
-
-
-
-
+}*/
 
 
 
@@ -85,15 +83,15 @@ font-family: 'Baloo Bhaina', cursive;*/
 }
 
 .container {
-  display: flex;
-  justify-content: center;
+  /*display: flex;
+  justify-content: center;*/
 
 }
 
 
 #outcome, #draw, #nextRound, #gameEnd{
   /*display: flex;*/
-  display:inline-block;
+  display:none;
   justify-content: center;
   font-family: 'Archivo Black', sans-serif;
   font-size: 30px;
@@ -114,6 +112,7 @@ font-family: 'Baloo Bhaina', cursive;*/
 }
 
 #gameEnd {
+
   top: 43%;
   padding-top: 15px;
   padding-bottom:5px;
@@ -256,13 +255,12 @@ new stuff for bigger game boards!*/
   transform: scale(1.1);
   color:rgb(107, 156, 219);
 
-
 }
 
 #score {
   display: none;
   position: absolute;
-  top: 16%;
+  top: 11%;
   left:36%;
 
 
@@ -317,6 +315,7 @@ h1 {
   font-size: 50px;
   color: black;
   position: absolute;
+  right:40%;
   top:20px;
 
 }
@@ -344,6 +343,7 @@ h2 {
   color: black;
   font-size: 30px;
   position: absolute;
+  right: 45%;
   bottom:20px;
   /*transition: all 0.5s ease-in-out;*/
 }
@@ -375,15 +375,5 @@ table tr td {
   border-radius: 10px;
   width: 150px;
   height: 150px;
-
-}
-
-td {
-  background-color: white;
-  font-family: 'Permanent Marker', cursive;
-  font-size: 100px;
-  font-weight: 800;
-  line-height: 50%;
-  text-align: center;
 
 }
