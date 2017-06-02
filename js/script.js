@@ -42,6 +42,9 @@ $('.placeholder').click(function(){
 // when start button is pressed generate game
 
 $('#startbutton').click(function(ev) {
+
+      $('#startSound').get(0).play(); // on start play sound effect
+
       gamesplayed = 0; // rest number of games played
       playerX = $('#playerXName').val();
       playerO = $('#playerOName').val();
@@ -128,6 +131,13 @@ $('#table').on('click', '.cell', function() {
   if (win) {
     return
   }; // check to see if the game has been one if so disable clicking
+
+  $('#xsound').get(0).play(); // on click play sound effect
+
+
+
+
+
   drawCounter++ // counting number of turns done
 
   // debugger;
@@ -321,7 +331,7 @@ var firstMove = function() {
 // Flag the game as being won
 
 var winGame = function() {
-
+  $('#introSound').get(0).play(); // play sound effect
   switchPlayer(); // this is bug fix I can't work out
   win = true;
   gamesplayed++; // when someone wins
@@ -385,6 +395,7 @@ $("#outcome, #draw").click(function() { // when clicked draw or win screen go to
 
 
   if (gamesplayed >= rounds && rounds < 2) {
+    $('#introSound').get(0).play(); // play sound effect
     $('#outcome, #draw').hide();
     $('#gameEnd').show().text('Thank you for playing you bastard');
     // $('#outcome, #draw').text // hide the win popup
@@ -403,6 +414,7 @@ $("#outcome, #draw").click(function() { // when clicked draw or win screen go to
 // end game scenario
 
 var gameEnd = function() {
+  $('#introSound').get(0).play(); // play sound effect
   currentPlayer = playerX;
   scoreAddup();
   $('#outcome, #draw').hide();
@@ -423,6 +435,7 @@ var gameEnd = function() {
 };
 
 $('#gameEnd').click(function() { // on end game window click to go to menu
+
   reset(); // reset game
   $('#score').hide(); // hide the score board
   oscore = 0;
