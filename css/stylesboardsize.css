@@ -1,8 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Anton|Archivo+Black|Baloo+Bhaina|Permanent+Marker');
-/*
-font-family: 'Anton', sans-serif;
-font-family: 'Archivo Black', sans-serif;
-font-family: 'Baloo Bhaina', cursive;*/
 
 * {
   margin: 0px;
@@ -22,52 +18,19 @@ font-family: 'Baloo Bhaina', cursive;*/
   text-align: center;
   vertical-align: top;
   line-height: 100%;
+  cursor: pointer;
+
 }
 
 #table{
-  border: 1px solid red;
+  /*border: 1px solid black;*/
+  border-radius: 5px;
   width: 80%;
   display: block;
   position: relative;
   top:100px;
   table-layout: fixed;
 }
-
-/*.boxo9 {
-    display: block;
-    background-color: white;
-    width: 100px;
-    height:100px;
-    border: black solid 2px;
-    border-radius: 2px;
-
-}
-
-.table9 {
-  position: absolute;
-  top:190px;
-  display: flex;
-  justify-content: center;
-  width:400px;
-  height:200px;
-  flex-direction:row;
-  flex-wrap: wrap;
-
-}*/
-
-/*.boxo {
-    display: block;
-    background-color: white;
-    width: 100px;
-    height:100px;
-    border: black solid 2px;
-    border-radius: 2px;
-
-}*/
-
-
-
-
 
 .box {
   display: none;
@@ -83,14 +46,11 @@ font-family: 'Baloo Bhaina', cursive;*/
 }
 
 .container {
-  /*display: flex;
-  justify-content: center;*/
 
 }
 
 
 #outcome, #draw, #nextRound, #gameEnd{
-  /*display: flex;*/
   display:none;
   justify-content: center;
   font-family: 'Archivo Black', sans-serif;
@@ -99,8 +59,7 @@ font-family: 'Baloo Bhaina', cursive;*/
   line-height: 100px;;
   position: absolute;
   border-radius: 20px;
-  /*left:34%;*/
-  top: 47%;
+  top: 41%;
   background-color: rgba(226, 223, 224, 0.9);
   width:380px;
   height:100px;
@@ -159,11 +118,7 @@ input[type=radio] {
 }
 
 
-/*
-new stuff for bigger game boards!*/
-
-
-.boxo {
+/*.boxo {
   background-color: white;
   font-family: 'Permanent Marker', cursive;
   font-size: 100px;
@@ -171,7 +126,7 @@ new stuff for bigger game boards!*/
   line-height: 50%;
   text-align: center;
 
-}
+}*/
 
 #rounds, #squares {
     display: flex;
@@ -205,43 +160,6 @@ new stuff for bigger game boards!*/
 }
 
 
-
-
-
-
-
-
-
-/*#settings p {
-
-  padding:0%;
-
-
-
-}*/
-
-
-
-
-
-
-
-/*#draw {
-  display: none;
-  font-family: 'Archivo Black', sans-serif;
-  text-align: center;
-  line-height: 50%;
-  position: absolute;
-  top: 38%;
-  background-color: rgba(226, 223, 224, 0.9);
-  width:400px;
-  height:100px;
-  z-index: 1;
-  padding:20px;
-  transition: all 3s ease-in-out;
-}*/
-
-
 #outcome button {
 
   font-family: 'Archivo Black', sans-serif;
@@ -249,6 +167,7 @@ new stuff for bigger game boards!*/
   width:20px;
   height:20px;
   transition: 0.3s all ease-in-out;
+  border: 0px;
 }
 
 #outcome button:hover {
@@ -262,8 +181,6 @@ new stuff for bigger game boards!*/
   position: absolute;
   top: 11%;
   left:36%;
-
-
 }
 
 #xscore, #oscore {
@@ -272,42 +189,21 @@ new stuff for bigger game boards!*/
   padding:20px;
 }
 
-  /*.nobutton {
-  position:absolute;
-  top: 50px;
-  right:150px;
-  border-radius: 30px;
-}*/
 
   .yesbutton, .drawbutton {
   font-size: 25px;
-  /*position:absolute;*/
+
   display:inline-block;
   cursor:pointer;
-  top: 50px;
+  top: 40px;
   font-family: 'Archivo Black', sans-serif;
-  width: 370px;
-  height: 100px;
+  width: 385px;
+  height: 109px;
+  /*width: 385px;
+  height: 105px;*/
   border-radius: 15px;
+  /*border: black 2px solid;*/
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 h1 {
@@ -345,30 +241,15 @@ h2 {
   position: absolute;
   right: 45%;
   bottom:20px;
-  /*transition: all 0.5s ease-in-out;*/
+
 }
 
-
-
-
-
-
-
-
-
-
-
-/*h2:hover {
-  transform: scale(1.2);
-}*/
 
 body {
   font-family: 'Archivo Black', sans-serif;
   display: flex;
   justify-content: center;
   background-color: lightgrey;
-
-
 
 }
 
@@ -379,11 +260,11 @@ table {
 
 }
 
-table tr td {
+/*table tr td {
 
   border: black solid 3px;
   border-radius: 10px;
   width: 150px;
   height: 150px;
 
-}
+}*/

@@ -16,31 +16,13 @@
     <h1>Tic Tac Toe</h1>
 
     <div id='table'>
-
-      <!-- <tr>
-        <td id='0' id="0" row="0" col="0" ></td>  <!-- $(this).attr('row') -->
-        <!-- <td id='1'></td>
-        <td id ='2'></td>
-      </tr>
-      <tr>
-        <td id='3' row="1" col="0"></td>
-        <td id='4'></td>
-        <td id='5'></td>
-      </tr>
-      <tr>
-        <td id='6'></td>
-        <td id='7'></td>
-        <td id='8'></td>
-      </tr> -->
-
-
     </div>
-
-
 
     <br>
 
     <div id="score"><span id="playerX"></span>'s Score:<span id="xscore"></span><span id="playerO"></span>'s Score:<span id="oscore"></span></div>
+
+    <h2></h2>
 
 </div>
 
@@ -48,7 +30,6 @@
   <div id="outcome">
     <span id="winner"></span> wins!
     <br>
-
   </div>
 
   <div id="draw">
@@ -62,10 +43,6 @@
   <div id="gameEnd">
   <button id="newgame" value="">Replay</button>
   </div>
-
-
-
-
 
   <div id="settings">
     <h1>Tic Tac Toe.</h1>
@@ -92,40 +69,25 @@
         Row Size(Default 3x3):
         <br>
 
-        <input type="number" id="custom" name="squares" min="3" max="100"><br>
-
-
-
-
-        <!-- <input type="radio" id="9squares" name="squares" value="3" checked> 3 x 3<br>
-        <input type="radio" id="16squares" name="squares" value="4"> 4 x 4<br>
-        <input type="radio" id="25squares" name="squares" value="5"> 5 x 5<br>
-        <input type="radio" id="30squares" name="squares" value="6"> 6 x 6<br>
-        <input type="radio" id="49squares" name="squares" value="7"> 7 x 7<br>
-        <input type="radio" id="64squares" name="squares" value="8"> 8 x 8<br>
-        <input type="radio" id="81squares" name="squares" value="9"> 9 x 9<br>
-        <input type="radio" id="100squares" name="squares" value="10"> 10 x 10<br>
-        <label><input type="radio" name="custom" value="squares">OTHER</label> -->
-
-        <!-- <input type="radio" id="customsquares" name="squares" value="">Custom size<input type="number" name="other_reason" />​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​ -->
+        <input type="number" id="custom" name="squares" min="3" max="100" value="3"><br>
 
       </form>
-
-
+      Colours:
+      <input type="radio" id="default" name="color" value="default" checked>Default<br>
+        <input type="radio" id="color" name="color" value="random">Random<br>
 
         <button id="startbutton" value="">Start Game</button>
     </div>
+
+
+
   </div>
-  <footer>
 
-    <h2></h2>
-
-  </footer>
 
 
 
   <script src="js/jquery.js"></script>
-  <script src='js/scriptwithboardsizes4.js' type="text/javascript">
+  <script src='js/scriptclean.js' type="text/javascript">
   </script>
 </body>
 

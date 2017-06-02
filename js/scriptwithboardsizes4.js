@@ -394,9 +394,8 @@ var firstMove = function(){
 
 
 
-
+// flag the game as being won!
 var winGame = function(){
-
     win = true;
 
     gamesplayed++;                             // when someone wins
@@ -406,13 +405,13 @@ var winGame = function(){
       $('#outcome').show('slow');
     }, 1000);
     return;
-
 };
 
-// reset the game
 
+
+// reset the game
 var reset = function(){
-  clear();
+  clearArray();
 
   playerMovedFirst === playerX ? currentPlayer = playerO : currentPlayer = playerX;
 
@@ -431,7 +430,7 @@ var reset = function(){
   // user name animation
   $( 'h2' ).css({height: '500px',fontSize: '50px', color: 'blue' });
   $( 'h2' ).animate({height: '40px',fontSize: '25px', color: 'black' }, 1000);
-  $( '.cell' ).each(function() { // clear every td from html
+  $( '.cell' ).each(function() { // clear all x's and o's
     $( this ).text( '' );
 
   });
@@ -497,7 +496,6 @@ var gameEnd = function() { // end game scenario
 
   };
 
-
     if (xscore > oscore){
     var champion = playerX;
   } else {
@@ -521,7 +519,7 @@ $('#gameEnd').click(function(){ // on end game window click to go to menu
 
 
 
-var clear = function(){  // clears array
+var clearArray = function(){  // clears array
 
   game.boxes = [];
 
