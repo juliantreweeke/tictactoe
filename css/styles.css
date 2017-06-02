@@ -1,30 +1,36 @@
 @import url('https://fonts.googleapis.com/css?family=Anton|Archivo+Black|Baloo+Bhaina|Permanent+Marker');
-/*
-font-family: 'Anton', sans-serif;
-font-family: 'Archivo Black', sans-serif;
-font-family: 'Baloo Bhaina', cursive;*/
 
 * {
   margin: 0px;
 
 }
 
-.boxo {
-    display: block;
-    background-color: white;
-    width: 50px;
-    height:50px;
-    border: black solid 2px;
+.cell{
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border: black solid 2px;
+  border-radius: 2px;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 80px;
+  font-weight: 800;
+  text-align: center;
+  vertical-align: top;
+  line-height: 100%;
+  cursor: pointer;
 
 }
 
-
-
-
-
-
-
-
+#table{
+  /*border: 1px solid black;*/
+  border-radius: 5px;
+  width: 80%;
+  display: block;
+  position: relative;
+  top:100px;
+  table-layout: fixed;
+}
 
 .box {
   display: none;
@@ -40,15 +46,12 @@ font-family: 'Baloo Bhaina', cursive;*/
 }
 
 .container {
-  display: flex;
-  justify-content: center;
 
 }
 
 
 #outcome, #draw, #nextRound, #gameEnd{
-  /*display: flex;*/
-  display:inline-block;
+  display:none;
   justify-content: center;
   font-family: 'Archivo Black', sans-serif;
   font-size: 30px;
@@ -56,8 +59,7 @@ font-family: 'Baloo Bhaina', cursive;*/
   line-height: 100px;;
   position: absolute;
   border-radius: 20px;
-  /*left:34%;*/
-  top: 47%;
+  top: 41%;
   background-color: rgba(226, 223, 224, 0.9);
   width:380px;
   height:100px;
@@ -69,6 +71,7 @@ font-family: 'Baloo Bhaina', cursive;*/
 }
 
 #gameEnd {
+
   top: 43%;
   padding-top: 15px;
   padding-bottom:5px;
@@ -114,6 +117,17 @@ input[type=radio] {
 
 }
 
+
+/*.boxo {
+  background-color: white;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 100px;
+  font-weight: 800;
+  line-height: 50%;
+  text-align: center;
+
+}*/
+
 #rounds, #squares {
     display: flex;
     justify-content: center;
@@ -146,43 +160,6 @@ input[type=radio] {
 }
 
 
-
-
-
-
-
-
-
-/*#settings p {
-
-  padding:0%;
-
-
-
-}*/
-
-
-
-
-
-
-
-/*#draw {
-  display: none;
-  font-family: 'Archivo Black', sans-serif;
-  text-align: center;
-  line-height: 50%;
-  position: absolute;
-  top: 38%;
-  background-color: rgba(226, 223, 224, 0.9);
-  width:400px;
-  height:100px;
-  z-index: 1;
-  padding:20px;
-  transition: all 3s ease-in-out;
-}*/
-
-
 #outcome button {
 
   font-family: 'Archivo Black', sans-serif;
@@ -190,22 +167,20 @@ input[type=radio] {
   width:20px;
   height:20px;
   transition: 0.3s all ease-in-out;
+  border: 0px;
 }
 
 #outcome button:hover {
   transform: scale(1.1);
   color:rgb(107, 156, 219);
 
-
 }
 
 #score {
   display: none;
   position: absolute;
-  top: 16%;
+  top: 11%;
   left:36%;
-
-
 }
 
 #xscore, #oscore {
@@ -214,42 +189,21 @@ input[type=radio] {
   padding:20px;
 }
 
-  /*.nobutton {
-  position:absolute;
-  top: 50px;
-  right:150px;
-  border-radius: 30px;
-}*/
 
   .yesbutton, .drawbutton {
   font-size: 25px;
-  /*position:absolute;*/
+
   display:inline-block;
   cursor:pointer;
-  top: 50px;
+  top: 40px;
   font-family: 'Archivo Black', sans-serif;
-  width: 370px;
-  height: 100px;
+  width: 385px;
+  height: 109px;
+  /*width: 385px;
+  height: 105px;*/
   border-radius: 15px;
+  /*border: black 2px solid;*/
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 h1 {
@@ -257,6 +211,7 @@ h1 {
   font-size: 50px;
   color: black;
   position: absolute;
+  right:40%;
   top:20px;
 
 }
@@ -282,23 +237,19 @@ h1 {
 h2 {
   font-family: 'Archivo Black', sans-serif;
   color: black;
-  font-size: 25px;
+  font-size: 30px;
   position: absolute;
-  bottom:10px;
-  /*transition: all 0.5s ease-in-out;*/
+  right: 45%;
+  bottom:20px;
+
 }
 
-/*h2:hover {
-  transform: scale(1.2);
-}*/
 
 body {
   font-family: 'Archivo Black', sans-serif;
   display: flex;
   justify-content: center;
   background-color: lightgrey;
-
-
 
 }
 
@@ -309,21 +260,11 @@ table {
 
 }
 
-table tr td {
+/*table tr td {
 
   border: black solid 3px;
   border-radius: 10px;
   width: 150px;
   height: 150px;
 
-}
-
-td {
-  background-color: white;
-  font-family: 'Permanent Marker', cursive;
-  font-size: 100px;
-  font-weight: 800;
-  line-height: 50%;
-  text-align: center;
-
-}
+}*/
