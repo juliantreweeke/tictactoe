@@ -13,11 +13,11 @@ A board size of 3x3 up to a horrendous 249x249 can be used.
 Anything 250 and above breaks the code and crashes the browser.
 The conditions for winning the game are the same for any board size.
 
-__Default__
+
 ![](img/default.png?raw=true)
-__Getting Silly__
+
 ![](img/gettingsilly.png?raw=true)
-__Rediculous__
+
 ![](img/gettingrediculous.png?raw=true)
 
 
