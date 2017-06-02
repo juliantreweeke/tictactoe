@@ -1,4 +1,3 @@
-
 // set global variables
 
 var turn; // for checking who's turn it is
@@ -21,16 +20,15 @@ var points;
 var colorScheme = false;
 var draw = false;
 
-var game = {    /// empty array
+var game = { /// empty array
 
-  boxes:[],
+  boxes: [],
 
-  hideGame: function(){ // when the game starts hide the game board
-  $('#outcome, #draw, #nextRound, #gameEnd').hide();
+  hideGame: function() { // when the game starts hide the game board
+    $('#outcome, #draw, #nextRound, #gameEnd').hide();
   },
 
 };
-
 
 game.hideGame();  // at start of game hide game board
 
@@ -43,73 +41,77 @@ $('.placeholder').click(function(){
 
 // when start button is pressed generate game
 
-$('#startbutton').click(function(ev){
-  gamesplayed = 0; // rest number of games played
-  playerX =  $('#playerXName' ).val();
-  playerO =  $('#playerOName').val();
-  // $('#settings').css('display', 'none');
-  $('#settings').fadeOut('slow');
-  $('h2').text(playerX);
-  currentPlayer = playerX; // sets current player
-  rounds = $("#rounds input[type='radio']:checked").val(); // get number of rounds
-  squares = $("#custom").val();
+$('#startbutton').click(function(ev) {
+      gamesplayed = 0; // rest number of games played
+      playerX = $('#playerXName').val();
+      playerO = $('#playerOName').val();
+      // $('#settings').css('display', 'none');
+      $('#settings').fadeOut('slow');
+      $('h2').text(playerX);
+      currentPlayer = playerX; // sets current player
+      rounds = $("#rounds input[type='radio']:checked").val(); // get number of rounds
+      squares = $("#custom").val();
 
 
+  if (game.boxes.length === 0) { // if new game generate new custom board size
 
-  if (game.boxes.length === 0){ // if new game generate new custom board size
+  for (var rows = 0; rows < squares; rows++) {
+    // set each row to be a new empty array (i.e. of column values)
+    game.boxes[rows] = [];
+    for (var cols = 0; cols < squares; cols++) {
+      var $cell = $('<div class="cell">');
+      $cell.attr('rows', rows).attr('cols', cols);
+      $('#table').append($cell);
+      game.boxes[rows][cols] = 0;
+    }
 
-      for (var rows = 0; rows < squares; rows++) {
-        // set each row to be a new empty array (i.e. of column values)
-        game.boxes[rows] = [];
-        for (var cols = 0; cols < squares; cols++) {
-          var $cell = $( '<div class="cell">' );
-          $cell.attr('rows', rows).attr('cols', cols);
-          $('#table').append($cell);
-           game.boxes[rows][cols] = 0;
-        }
+  }
 
-      }
+  // work out table size and font size determined by intro settings
+  var tableWidth = 500 + (squares * 4);
+  $('#table').css('width', tableWidth + 'px');
+  var fontSize = Math.round(350 / squares);
+  $('.cell').css('font-size', fontSize + 'px');
 
-      // work out table size and font size determined by intro settings
-      var tableWidth = 500 + (squares * 4);
-      $('#table').css('width', tableWidth + 'px');
-      var fontSize = Math.round( 350 / squares );
-      $('.cell').css('font-size', fontSize + 'px');
+  // set cell size
+  var cellSize = 500 / squares;
+  $('.cell').css({
+    width: cellSize + 'px',
+    height: cellSize + 'px'
+  });
+  // when game gets bigger move the player name to the top of the page
+  if (squares > 11) {
+    $('h2').css({
+      'right': '10%',
+      'bottom': '87%'
+    });
+  }
 
-      // set cell size
-      var cellSize = 500 / squares;
-      $('.cell').css({
-        width:  cellSize + 'px',
-        height: cellSize + 'px'
-      });
-      // when game gets bigger move the player name to the top of the page
-      if (squares > 11){
-        $('h2').css({'right': '10%', 'bottom': '87%'});
-      }
-
-      // if random color is selected
+  // if random color is selected
 
 
-       if($('#color').is(':checked')) {
-         colorScheme = true;
-         randomColors();
+  if ($('#color').is(':checked')) {
+    colorScheme = true;
+    randomColors();
 
-       }; // color checked
+  }; // color checked
 
-      }; // if game.boxes.length
+}; // if game.boxes.length
 
 }); // startbutton
 
-var randomColors = function(){
-  var colorbank = ["#ADD7F6","#87BFFF","#3F8EFC","#2667FF","#9CB9FF","#D9ECFA","#75AAB7"];
-  var backroundbank = ["#4F6270","#638BBA","#2E68B8","#122F74","#3E5774","#405D64"];
+
+
+var randomColors = function() {
+  var colorbank = ["#ADD7F6", "#87BFFF", "#3F8EFC", "#2667FF", "#9CB9FF", "#D9ECFA", "#75AAB7"];
+  var backroundbank = ["#4F6270", "#638BBA", "#2E68B8", "#122F74", "#3E5774", "#405D64"];
 
   var rand = colorbank[Math.floor(Math.random() * colorbank.length)];
-  $('.cell').css('background-color',rand);
-  $('#xscore, #oscore').css('color',rand);
+  $('.cell').css('background-color', rand);
+  $('#xscore, #oscore').css('color', rand);
 
   var backrand = backroundbank[Math.floor(Math.random() * colorbank.length)];
-  $('body, #outcome, #draw, #nextRound, #gameEnd, .yesbutton' ).css('background',backrand);
+  $('body, #outcome, #draw, #nextRound, #gameEnd, .yesbutton').css('background', backrand);
   // $('body').css('background',backrand);
 
 };
@@ -121,9 +123,11 @@ var randomColors = function(){
 
 // when a cell is clicked
 
-$('#table').on('click','.cell',function(){
+$('#table').on('click', '.cell', function() {
 
-  if(win){ return }; // check to see if the game has been one if so disable clicking
+  if (win) {
+    return
+  }; // check to see if the game has been one if so disable clicking
   drawCounter++ // counting number of turns done
 
   // debugger;
@@ -132,7 +136,7 @@ $('#table').on('click','.cell',function(){
 
   var gocol = +$(this).attr('cols');
 
-  if (currentPlayer === playerX){
+  if (currentPlayer === playerX) {
     turn = 'x';
     points = 1;
 
@@ -141,7 +145,7 @@ $('#table').on('click','.cell',function(){
     points = -1;
   }
 
-  if ( $(this).text() === '' ){
+  if ($(this).text() === '') {
     firstMove(); // determine if this is the first move of the game
     $(this).text(turn); // put a x or o in the squares
     game.boxes[gorow][gocol] = points; // push the point value of the player to the array
@@ -264,7 +268,7 @@ var checkDraw = function(){
 
 
 // change player and update player name
-var switchPlayer = function(){
+var switchPlayer = function() {
   currentPlayer === playerX ? currentPlayer = playerO : currentPlayer = playerX;
 
   $('h2').text(currentPlayer).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
@@ -272,43 +276,41 @@ var switchPlayer = function(){
 
 
 
-
-
 // misc buttons and functions
 
-$( '.yesbutton' ).click(function() { // yes button resets the game
-    drawCounter === 0;
-    scoreAddup();
-    $('#nextRound').hide();
-    reset();
+$('.yesbutton').click(function() { // yes button resets the game
+  drawCounter === 0;
+  scoreAddup();
+  $('#nextRound').hide();
+  reset();
 });
 
 
-$( '.drawbutton' ).click(function() { // yes button resets the game
-    drawCounter === 0;
-    $('#xscore').text( xscore );
-    $('#oscore').text( oscore );
-    reset();
+$('.drawbutton').click(function() { // yes button resets the game
+  drawCounter === 0;
+  $('#xscore').text(xscore);
+  $('#oscore').text(oscore);
+  reset();
 });
 
 // Add up the score to see who has won
 
-var scoreAddup = function(){ // add up the score
-  if (draw){ // if the game is a draw toggle draw and don't add up
-  draw = false;
-  return;
+var scoreAddup = function() { // add up the score
+  if (draw) { // if the game is a draw toggle draw and don't add up
+    draw = false;
+    return;
   }
-  if (turn === 'x'){
-      xscore += 1;
-    };
-  if (turn === 'o'){
-      oscore += 1;
-    };
+  if (turn === 'x') {
+    xscore += 1;
+  };
+  if (turn === 'o') {
+    oscore += 1;
+  };
 };
 
 // work out who moved first
-var firstMove = function(){
-  if (drawCounter === 1){
+var firstMove = function() {
+  if (drawCounter === 1) {
     playerMovedFirst = currentPlayer;
   }
 };
@@ -316,30 +318,21 @@ var firstMove = function(){
 
 
 
-
-
-
-
-
-
-
-
 // Flag the game as being won
 
-var winGame = function(){
+var winGame = function() {
 
-    switchPlayer(); // this is bug fix I can't work out
-    win = true;
-    gamesplayed++;                             // when someone wins
-    setTimeout(function(){
-      $('.container').addClass('blur');
-      $('#winner').text( currentPlayer + ' ' );
-      $('#outcome').show('slow');
-    }, 1000);
-    return;
+  switchPlayer(); // this is bug fix I can't work out
+  win = true;
+  gamesplayed++; // when someone wins
+  setTimeout(function() {
+    $('.container').addClass('blur');
+    $('#winner').text(currentPlayer + ' ');
+    $('#outcome').show('slow');
+  }, 1000);
+  return;
 
 };
-
 
 
 // reset the game
@@ -386,25 +379,19 @@ var reset = function() {
 
 
 
+// outcome pop up and check to see if total rounds have been played
+
+$("#outcome, #draw").click(function() { // when clicked draw or win screen go to scoring
 
 
-
-
-
-
-// check to see if total rounds have been played
-
-$( "#outcome, #draw" ).click(function() { // when clicked draw or win screen go to scoring
-
-
-  if ( gamesplayed >= rounds && rounds < 2 ){
+  if (gamesplayed >= rounds && rounds < 2) {
     $('#outcome, #draw').hide();
     $('#gameEnd').show().text('Thank you for playing you bastard');
     // $('#outcome, #draw').text // hide the win popup
     return;
   };
 
-  if ( gamesplayed >= rounds && rounds > 2 ){
+  if (gamesplayed >= rounds && rounds > 2) {
     // $('#outcome, #draw').text('Thank you for playing you bastard'); // hide the win popup
     gameEnd();
     return;
@@ -413,8 +400,6 @@ $( "#outcome, #draw" ).click(function() { // when clicked draw or win screen go 
   $('#outcome, #draw').hide(); // hide the popups
   $('#nextRound').show();
 });
-
-
 // end game scenario
 
 var gameEnd = function() {
@@ -446,18 +431,16 @@ $('#gameEnd').click(function() { // on end game window click to go to menu
   $('#settings').show(); // show menu
 });
 
-
-
 // clear the array for a new game
 
-var clearArray = function(){
+var clearArray = function() {
 
   game.boxes = [];
 
   for (var rows = 0; rows < squares; rows++) {
     game.boxes[rows] = [];
     for (var cols = 0; cols < squares; cols++) {
-        game.boxes[rows][cols] = 0;
+      game.boxes[rows][cols] = 0;
     }
   }
   console.log(game.boxes);
