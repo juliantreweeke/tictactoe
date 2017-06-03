@@ -1,7 +1,7 @@
 
 # Tic Tac Toe
 
-This is my first project for General Assemblies Web-Dev Immersive BootCamp.
+This is my first Javascript project for General Assemblies Web-Dev Immersive BootCamp.
 
 Live link: [Tic Tac Toe ](https://juliantreweeke.github.io/tictactoe/)
 
@@ -44,12 +44,13 @@ When turned on, this randomly toggles between different colour schemes.
 I used jQuery in this project.
 
 ### Bugs.
-Some of the css is messy and the popup positioning is incorrect.
+Some of the css is messy and the popup positioning is incorrect. After trying to refactor the code now you need to refresh to change the board size after playing a round.
 
 ### Final thoughts.
 
-If I did this project again I would focus on a plan early on and keep my code cleaner.
-The custom board size feature took a lot longer then expected and I would have liked to focus on the visual design of the game more but I ran out of time.
-
+If I did this project again I would focus on a plan early on and keep my code cleaner and way way smaller.
+Trying to refactor the code created endless bugs and kept breaking the code. In my next project I am going to start carefully and with a plan rather then just going all in and creating a horrible mess spaghetti code ahh! I got really carried away with features and experimenting with jQuery.
+The custom board size feature took a lot longer then expected and I would have liked to focus on the visual design of the game more too but I ran out of time.
+ 
 ### Thanks.
 Bigups and props to the mofo don Luke Hammer for helping me with the custom board size square shrinking.
