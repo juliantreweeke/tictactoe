@@ -45,7 +45,7 @@ $('#startbutton').click(function(ev) {
 
       $('#startSound').get(0).play(); // on start play sound effect
 
-      gamesplayed = 0; // rest number of games played
+      gamesplayed = 0; // set number of games played
       playerX = $('#playerXName').val();
       playerO = $('#playerOName').val();
       // $('#settings').css('display', 'none');
